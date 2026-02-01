@@ -29,7 +29,7 @@ const Register = () => {
         }
 
         try {
-            const response = await axios.post('/api/auth/register', formData);
+            const response = await axios.post('/auth/register', formData);
             if(response.data.success) {
                 navigate('/login');
             }
