@@ -9,7 +9,7 @@ const AdminSummary = () => {
     useEffect(() => {
         const fetchSummary = async () => {
              try {
-                const summaryData = await axios.get('/dashboard/summary');
+                const summaryData = await axios.get('/api/dashboard/summary');
                 if(summaryData.data.success) {
                     setSummary(summaryData.data.summary);
                 }
