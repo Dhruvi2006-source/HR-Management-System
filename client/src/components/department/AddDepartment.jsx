@@ -17,7 +17,7 @@ const AddDepartment = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/departments/add', department);
+            const response = await axios.post('/api/departments/add', department);
             if(response.data.success) {
                 navigate('/admin-dashboard/departments');
             }

@@ -15,7 +15,7 @@ const EditDepartment = () => {
         const fetchDepartment = async () => {
              setDepLoading(true);
             try {
-                const response = await axios.get('/departments'); // Can be optimized, but using filter for now if GetOne not ready, oh wait I need specific ID. Actually index has get All, but user routes in dep.js has no simple getOne for admin? 
+                const response = await axios.get('/api/departments'); // Can be optimized, but using filter for now if GetOne not ready, oh wait I need specific ID. Actually index has get All, but user routes in dep.js has no simple getOne for admin? 
                 // Ah, I did not create a GetOne endpoint in department.js? Let's check or just fetch all and filter.
                 // Re-checking department.js... I only have '/', '/add', '/:id'(Put), '/:id'(Delete). No GET by ID. 
                 // I will just fetch all and find, or better, add GET /:id route. 
@@ -46,7 +46,7 @@ const EditDepartment = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`/departments/${id}`, department);
+            const response = await axios.put(`/api/departments/${id}`, department);
             if(response.data.success) {
                 navigate('/admin-dashboard/departments');
             }

@@ -18,7 +18,7 @@ const DepartmentList = () => {
         const fetchDepartments = async () => {
             setDeptLoading(true);
             try {
-                const response = await axios.get('/departments');
+                const response = await axios.get('/api/departments');
                 if(response.data.success) {
                     let sno = 1;
                     const data = await response.data.departments.map(dept => ({
