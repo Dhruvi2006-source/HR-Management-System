@@ -6,7 +6,7 @@ const AdminLeaveList = () => {
     const [filter, setFilter] = useState('pending');
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get('/leaves');
+            const response = await axios.get('/api/leaves');
             if (response.data.success) {
                 setLeaves(response.data.leaves);
             }
@@ -24,7 +24,7 @@ const AdminLeaveList = () => {
     const handleAction = async (id, status) => {
         const comment = prompt("Enter a comment (optional):");
         try {
-            const response = await axios.put(`/leaves/${id}`, { status, adminComment: comment });
+            const response = await axios.put(`/api/leaves/${id}`, { status, adminComment: comment });
             if(response.data.success) {
                 fetchLeaves();
             }
@@ -61,7 +61,7 @@ const AdminLeaveList = () => {
                             <tr key={leave._id}>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
-                                         
+                                         <img src={`/uploads/${leave.employeeId?.profilePicture}`} alt="" className="w-10 h-10 rounded-full" />
                                          <div className="ml-4">
                                              <div className="text-sm font-medium text-gray-900">{leave.employeeId?.name}</div>
                                              <div className="text-sm text-gray-500">{leave.employeeId?.department?.deptName}</div>

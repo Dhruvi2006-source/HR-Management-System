@@ -20,7 +20,7 @@ const AddSalary = () => {
     useEffect(() => {
         const fetchDepartments = async () => {
             try {
-                const response = await axios.get('/departments');
+                const response = await axios.get('/api/departments');
                 if (response.data.success) {
                     setDepartments(response.data.departments);
                 }
@@ -37,7 +37,7 @@ const AddSalary = () => {
      useEffect(() => {
         const fetchEmployees = async () => {
              try {
-                const response = await axios.get('/employees');
+                const response = await axios.get('/api/employees');
                 if (response.data.success) {
                      setEmployees(response.data.employees);
                 }
@@ -57,7 +57,7 @@ const AddSalary = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/salary/add', salary);
+            const response = await axios.post('/api/salary/add', salary);
             if(response.data.success) {
                 alert("Salary Added Successfully");
                 navigate('/admin-dashboard/salary');

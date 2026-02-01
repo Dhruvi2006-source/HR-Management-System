@@ -10,7 +10,7 @@ const SalaryList = () => {
             try {
                 // We'll use the 'dashboard salary' call or maybe just get employees?
                 // The /api/salary/ logic returns list of Users.
-                const response = await axios.get('/salary'); 
+                const response = await axios.get('/api/salary'); 
                 if (response.data.success) {
                     setFilterSalary(response.data.employees); 
                 }

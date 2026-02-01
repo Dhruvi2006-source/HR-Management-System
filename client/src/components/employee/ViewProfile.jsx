@@ -17,7 +17,7 @@ const ViewProfile = () => {
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const response = await axios.get(`/employees/${user._id}`);
+                const response = await axios.get(`/api/employees/${user._id}`);
                 if (response.data.success) {
                     setEmployee(response.data.employee);
                     setFormData({
@@ -55,7 +55,7 @@ const ViewProfile = () => {
         }
 
         try {
-            const response = await axios.put(`/employees/${employee._id}/profile`, data);
+            const response = await axios.put(`/api/employees/${employee._id}/profile`, data);
             if (response.data.success) {
                 setEmployee(response.data.employee);
                 setIsEditing(false);

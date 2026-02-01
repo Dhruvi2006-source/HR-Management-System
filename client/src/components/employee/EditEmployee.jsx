@@ -24,7 +24,7 @@ const EditEmployee = () => {
     useEffect(() => {
         const fetchDepartments = async () => {
              try {
-                const response = await axios.get('/departments');
+                const response = await axios.get('/api/departments');
                 if(response.data.success) {
                    setDepartments(response.data.departments);
                 }
@@ -35,7 +35,7 @@ const EditEmployee = () => {
 
         const fetchEmployee = async () => {
              try {
-                const response = await axios.get(`/employees/${id}`);
+                const response = await axios.get(`/api/employees/${id}`);
                 if(response.data.success) {
                     const emp = response.data.employee;
                     setFormData({
@@ -70,7 +70,7 @@ const EditEmployee = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`/employees/${id}`, formData);
+            const response = await axios.put(`/api/employees/${id}`, formData);
             if(response.data.success) {
                 navigate('/admin-dashboard/employees');
             }

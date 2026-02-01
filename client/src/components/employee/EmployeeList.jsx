@@ -13,17 +13,23 @@ const EmployeeList = () => {
         const fetchEmployees = async () => {
             setEmpLoading(true);
             try {
-                const response = await axios.get('/employees');
+                const response = await axios.get('/api/employees');
                 if(response.data.success) {
                     let sno = 1;
-                    const data = await response.data.employees.map(emp => ({
-                       _id: emp._id,
-                       sno: sno++,
-                       deptName: emp.department?.deptName || "N/A",
-                       name: emp.name,
-                       dob: new Date(emp.dob).toLocaleDateString(),
-                       profilePicture: <img src={`/${emp.profilePicture}`} alt="" className="w-10 h-10 rounded-full" />,
-                       action: (<EmployeeButtons _id={emp._id} />)
+                    const data = await response.data.employees.map((emp) => ({
+                      _id: emp._id,
+                      sno: sno++,
+                      deptName: emp.department?.deptName || "N/A",
+                      name: emp.name,
+                      dob: new Date(emp.dob).toLocaleDateString(),
+                      profilePicture: (
+                        <img
+                          src={`/uploads/${emp.profilePicture}`}
+                          alt=""
+                          className="w-10 h-10 rounded-full"
+                        />
+                      ),
+                      action: <EmployeeButtons _id={emp._id} />,
                     }));
                     setEmployees(data);
                     setFilterEmployees(data);

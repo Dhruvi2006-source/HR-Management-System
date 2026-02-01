@@ -12,7 +12,7 @@ const Leaves = () => {
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get('/leaves');
+            const response = await axios.get('/api/leaves');
             if (response.data.success) {
                 setLeaves(response.data.leaves);
             }
@@ -28,7 +28,7 @@ const Leaves = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/leaves/add', {
+            const response = await axios.post('/api/leaves/add', {
                 leaveType, startDate, endDate, reason
             });
             if(response.data.success) {

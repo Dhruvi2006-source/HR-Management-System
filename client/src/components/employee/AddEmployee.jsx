@@ -10,7 +10,7 @@ const AddEmployee = () => {
     useEffect(() => {
         const fetchDepartments = async () => {
              try {
-                const response = await axios.get('/departments');
+                const response = await axios.get('/api/departments');
                 if(response.data.success) {
                    setDepartments(response.data.departments);
                 }
@@ -41,7 +41,7 @@ const AddEmployee = () => {
         })
 
         try {
-            const response = await axios.post('/employees/add', formDataObj);
+            const response = await axios.post('/api/employees/add', formDataObj);
             if(response.data.success) {
                 navigate('/admin-dashboard/employees');
             }
