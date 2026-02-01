@@ -33,7 +33,7 @@ import attendanceRouter from './routes/attendance.js';
 import salaryRouter from './routes/salary.js';
 import dashboardRouter from './routes/dashboard.js';
 
-app.use('/api/auth', authRouter);
+app.use('/auth', authRouter);
 app.use('/api/departments', departmentRouter);
 app.use('/api/employees', employeeRouter);
 app.use('/api/leaves', leaveRouter);
