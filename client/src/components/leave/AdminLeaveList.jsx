@@ -61,7 +61,7 @@ const AdminLeaveList = () => {
                             <tr key={leave._id}>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <div className="flex items-center">
-                                         {/* <img className="h-8 w-8 rounded-full" src={`http://localhost:5000/uploads/${leave.employeeId.profilePicture}`} alt="" /> */}
+                                         
                                          <div className="ml-4">
                                              <div className="text-sm font-medium text-gray-900">{leave.employeeId?.name}</div>
                                              <div className="text-sm text-gray-500">{leave.employeeId?.department?.deptName}</div>

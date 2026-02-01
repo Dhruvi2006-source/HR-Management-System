@@ -22,7 +22,7 @@ const EmployeeList = () => {
                        deptName: emp.department?.deptName || "N/A",
                        name: emp.name,
                        dob: new Date(emp.dob).toLocaleDateString(),
-                       profilePicture: <img src={`http://localhost:5000/${emp.profilePicture}`} alt="" className="w-10 h-10 rounded-full" />,
+                       profilePicture: <img src={`/${emp.profilePicture}`} alt="" className="w-10 h-10 rounded-full" />,
                        action: (<EmployeeButtons _id={emp._id} />)
                     }));
                     setEmployees(data);

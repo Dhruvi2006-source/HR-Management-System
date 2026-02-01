@@ -78,7 +78,7 @@ const ViewProfile = () => {
                 <div className="flex flex-col items-center justify-center">
                     <div className="relative">
                         <img 
-                            src={previewUrl || `http://localhost:5000/uploads/${employee.profilePicture}`} 
+                            src={previewUrl || `/uploads/${employee.profilePicture}`} 
                             alt="Profile" 
                             className="w-48 h-48 rounded-full object-cover border-4 border-teal-600 shadow-lg"
                         />
