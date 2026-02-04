@@ -16,7 +16,7 @@ const Attendance = () => {
     const fetchAttendance = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('/attendance');
+            const response = await axios.get('/api/attendance');
             if (response.data.success) {
                 const data = response.data.attendance;
                 setAttendance(data);
@@ -58,7 +58,7 @@ const Attendance = () => {
 
     const handleAttendanceAction = async () => {
          try {
-            const response = await axios.post('/attendance/mark');
+            const response = await axios.post('/api/attendance/mark');
             if(response.data.success) {
                 alert(response.data.message);
                 fetchAttendance();

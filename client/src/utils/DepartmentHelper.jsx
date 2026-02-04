@@ -24,7 +24,7 @@ export const DepartmentButtons = ({ _id, onDepartmentDelete }) => {
         const confirm = window.confirm("Do you want to delete?");
         if(confirm) {
             try {
-                const response = await axios.delete(`/departments/${id}`);
+                const response = await axios.delete(`/api/departments/${id}`);
                 if(response.data.success) {
                     onDepartmentDelete(id)
                 }

@@ -10,7 +10,7 @@ const AdminAttendance = () => {
         const fetchAttendance = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('/attendance');
+                const response = await axios.get('/api/attendance');
                 if (response.data.success) {
                     setAttendance(response.data.attendance);
                 }

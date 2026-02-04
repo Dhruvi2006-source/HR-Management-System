@@ -16,7 +16,7 @@ const EmployeeSummary = () => {
     useEffect(() => {
         const fetchSummary = async () => {
              try {
-                const response = await axios.get('/attendance');
+                const response = await axios.get('/api/attendance');
                 if (response.data.success) {
                     const data = response.data.attendance;
                     const stats = { present: 0, absent: 0, halfDay: 0, leave: 0 };
