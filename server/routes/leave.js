@@ -42,22 +42,31 @@ router.put('/:id', verifyToken, verifyRole(['admin']), async (req, res) => {
     }
 });
 
-// Apply for Leave
-router.post('/add', verifyToken, async (req, res) => {
-    try {
-        const { leaveType, startDate, endDate, reason } = req.body;
-        const newLeave = new Leave({
-            employeeId: req.user._id,
-            leaveType,
-            startDate,
-            endDate,
-            reason
-        });
-        await newLeave.save();
-        return res.status(200).json({ success: true, message: "Leave applied successfully" });
-    } catch(error) {
-        return res.status(500).json({ success: false, error: "Add leave server error" });
-    }
+router.post("/add", verifyToken, async (req, res) => {
+  try {
+    const { leaveType, startDate, endDate, reason } = req.body;
+
+    // DEBUGGING: Aa line add kar
+    console.log("User Data from Token:", req.user);
+    console.log("Body Data:", req.body);
+
+    const newLeave = new Leave({
+      employeeId: req.user._id, // <--- AA LINE DANGER CHHE
+      leaveType,
+      startDate,
+      endDate,
+      reason,
+    });
+
+    await newLeave.save();
+    return res
+      .status(200)
+      .json({ success: true, message: "Leave applied successfully" });
+  } catch (error) {
+    // ERROR LOG KAR (Aa jaruri chhe)
+    console.log("❌ Error in add leave:", error);
+    return res.status(500).json({ success: false, error: error.message }); // Frontend par pan sachi error mokal
+  }
 });
 
 export default router;
