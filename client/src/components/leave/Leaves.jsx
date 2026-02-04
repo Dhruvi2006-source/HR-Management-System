@@ -28,8 +28,11 @@ const Leaves = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/api/leaves/add', {
-                leaveType, startDate, endDate, reason
+            const response = await axios.post("/api/leaves/add", {
+              leaveType,
+              startDate,
+              endDate,
+              reason,
             });
             if(response.data.success) {
                 fetchLeaves();
